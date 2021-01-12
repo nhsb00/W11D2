@@ -1,21 +1,24 @@
 import React from 'react';
+import { Link } from "react-router-dom";
+
 function PokemonIndexItem(props) {
     return (
         <ul>
-            {this.props.pokemon.map((poke) => (
-                <li className="pokemon-index-item">
-                    <span>{poke.id}</span>
-                    <img src={poke.imageUrl} />
-                    <span>{poke.name}</span>
-                </li>
-            ))}
+            {/* single pokemon*/}
+            <li className="pokemon-index-item">
+                <Link to={`/pokemon/${props.pokemon.id}`}>
+                    <span>{props.pokemon.id}</span>
+                    <img src={props.pokemon.imageUrl} />
+                    <span>{props.pokemon.name}</span>
+                </Link>
+            </li>
         </ul>
     )
 }
 
 export default PokemonIndexItem;
 
-// // export a functional PokemonIndexItem componen
+// // export a functional PokemonIndexItem component
 // class PokemonIndexItem extends React.Componenet{
 //     constructor(props){
 //         super(props)
